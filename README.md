@@ -74,7 +74,7 @@ networks:
     driver: bridge
 ```
 
-With the environment variables are defined in `.env` file:
+With the environment variables are defined in [`.env`](./env) file:
 
 ```properties
 ELASTICSEARCH_IMAGE=docker.elastic.co/elasticsearch/elasticsearch:7.9.2
@@ -130,7 +130,7 @@ RUN apk add --update --virtual .build-deps \
 #    /home/fluent/.gem/ruby/2.3.0/cache/*.gem
 ```
 
-And the last part, the [`fluentd.conf`](./fluentd/etc/fluentd.conf) file. Please fill in the password before save file (you can type whatever you want but remeber it because we need use this password later to configurate):
+And the last part, the [`fluentd.conf`](./fluentd/etc/fluent.conf) file. Please fill in the password before save file (you can type whatever you want but remeber it because we need use this password later to configurate):
 ```conf
 # Fluentd main configuration file
 # Reference: https://docs.fluentd.org/v1.0/articles/config-file
@@ -349,7 +349,7 @@ services:
         fluentd-max-retries: '30'
         tag: 'spring-ci-efk.efk'
 ```
-with the tag `spring-ci-efk.efk` is the same in the [`fluentd.conf`](./fluentd/etc/fluentd.conf) file.
+with the tag `spring-ci-efk.efk` is the same in the [`fluentd.conf`](./fluentd/etc/fluent.conf) file.
 
 And then I `up` my docker spring container, go to kibana page and create the index pattern:
 
